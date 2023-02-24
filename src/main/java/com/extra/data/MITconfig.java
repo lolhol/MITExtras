@@ -12,18 +12,18 @@ public class MITconfig extends Vigilant {
     )
     public static int nukerRange = 4;
 
-    //----------------------------------------------------------------
-    //                              Crop Nuker
-    //----------------------------------------------------------------
-
     @Property(
             type = PropertyType.SELECTOR, name = "Nuker Crop Type", description = "Customise what crops the crop nuker will nuke. (only crop)", category = "Nuker", options = {"Wheat", "Carrot", "Potato", "Warts", "Pumpkin", "Melon", "Cocoa"})
     public static int cropNukerType = 0;
 
     @Property(
-            type = PropertyType.SELECTOR, name = "Crop Nuker Blocks/Second", description = "Customise how fast the nuker breaks blocks. (Ps: yes, ik this is slow but i still dono how to make it faster.) This is only for crop nuker !", category = "Nuker", options = {"10 BPS", "5 BPS"}
+            type = PropertyType.SELECTOR, name = "Crop Nuker Blocks/Second", description = "Customise how fast the nuker breaks blocks. (Ps: yes, ik this is slow but i still dono how to make it faster.) This is only for crop nuker !", category = "Nuker", options = {"(NEW!) 20 BPS", "10 BPS", "5 BPS"}
     )
     public static int cropNukerBPS = 1;
+
+    @Property(
+            type = PropertyType.SWITCH, name = "Coal ping-less(ish) mode", description = "!!WARNING!! USE ONLY IF U CAN 100% INSTABREAK COAL IF U CANT, THIS FEATURE IS USELESS!", category = "Nuker")
+    public static boolean coalVroomVroomMode = false;
 
     //----------------------------------------------------------------
     //                              ESP

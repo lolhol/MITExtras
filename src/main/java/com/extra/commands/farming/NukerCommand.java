@@ -1,7 +1,7 @@
 package com.extra.commands.farming;
 
 import com.extra.utils.chatUtils.SendChat;
-import com.extra.utils.random.checkIfItemInInv;
+import com.extra.utils.getUtils.checkIfItemInInv;
 import gg.essential.api.commands.Command;
 import gg.essential.api.commands.DefaultHandler;
 import net.minecraft.init.Items;

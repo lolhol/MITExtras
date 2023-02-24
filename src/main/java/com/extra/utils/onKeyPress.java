@@ -1,14 +1,13 @@
 package com.extra.utils;
 
-import com.extra.commands.NukerCommand;
+import com.extra.MITExtras;
 import com.extra.commands.farming.cropNukerCommand;
 import com.extra.commands.mining.coalNukerCommand;
-import com.extra.MITExtras;
 import com.extra.data.MITconfig;
 import com.extra.utils.chatUtils.SendChat;
-import com.extra.utils.random.checkIfItemInInv;
-import gg.essential.api.commands.DefaultHandler;
-import net.minecraft.block.Block;
+import com.extra.utils.getUtils.checkIfItemInInv;
+import com.extra.utils.getUtils.getBPS;
+import com.extra.utils.getUtils.getCropType;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -21,9 +20,19 @@ public class onKeyPress {
     @SubscribeEvent
     public void keyPress(InputEvent.KeyInputEvent event) {
         if (MITExtras.keybinds.get(0).isPressed()) {
-            coalNukerCommand.coalNukerIsOn = !coalNukerCommand.coalNukerIsOn;
+            String str = null;
+            boolean vroomVroom = coalNukerCommand.coalVroomVroom;
+            boolean vroomVroomCheck = MITconfig.coalVroomVroomMode;
+            boolean normal = coalNukerCommand.coalNukerIsOn;
 
-            String str = coalNukerCommand.coalNukerIsOn ? "Coal Nuker Enabled!" : "Coal Nuker Disabled!";
+            if (vroomVroomCheck) {
+                normal = !normal;
+                str = normal ? "Coal Nuker Enabled!" : "Coal Nuker Disabled!";
+            } else {
+                vroomVroom = !vroomVroom;
+                str = vroomVroom ? "Coal Nuker Enabled!" : "Coal Nuker Disabled!";
+            }
+
             SendChat.chat("§l§4[MINING IN TWO]§r " + str);
         }
 
@@ -57,30 +66,11 @@ public class onKeyPress {
 
             cropNuker = !cropNuker;
 
-            cropNukerCommand.cropType = getCropType();
+            cropNukerCommand.cropType = getCropType.getCropType();
+            cropNukerCommand.BPS = getBPS.getBPS();
 
             String str = cropNuker ? "Crop Nuker Enabled!" : "Crop Nuker Disabled!";
             SendChat.chat("§l§4[MINING IN TWO]§r " + str);
         }
-    }
-
-    private Block getCropType() {
-        int cropType = MITconfig.cropNukerType;
-        Block crop = Blocks.wheat;
-        if (cropType == 1) {
-            crop = Blocks.carrots;
-        } else if (cropType == 2) {
-            crop = Blocks.potatoes;
-        } else if (cropType == 3) {
-            crop = Blocks.nether_wart;
-        } else if (cropType == 4) {
-            crop = Blocks.pumpkin;
-        } else if (cropType == 5) {
-            crop = Blocks.melon_block;
-        } else if (cropType == 6) {
-            crop = Blocks.cocoa;
-        }
-
-        return crop;
     }
 }

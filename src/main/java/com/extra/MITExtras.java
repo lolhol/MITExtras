@@ -1,6 +1,5 @@
 package com.extra;
 
-import com.extra.commands.KeyBinds.coalNukerBind;
 import com.extra.commands.farming.ExtrasCommand;
 import com.extra.commands.farming.NukerCommand;
 import com.extra.commands.farming.continueNukerCommand;
@@ -11,8 +10,7 @@ import com.extra.features.farming.ESP.blocksESP;
 import com.extra.features.farming.ESP.currentNukedBlockESP;
 import com.extra.features.farming.cropNuker;
 import com.extra.features.farming.gardenNuker;
-import com.extra.features.mining.coalNuker;
-import com.extra.utils.chatUtils.SendChat;
+import com.extra.features.mining.coalNuker.coalNuker;
 import com.extra.utils.onKeyPress;
 import com.extra.utils.random.MacroUtil;
 import gg.essential.api.EssentialAPI;
@@ -23,8 +21,6 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.input.Keyboard;

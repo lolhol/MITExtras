@@ -1,7 +1,8 @@
 package com.extra.commands.farming;
 
-import com.extra.data.MITconfig;
 import com.extra.utils.chatUtils.SendChat;
+import com.extra.utils.getUtils.getBPS;
+import com.extra.utils.getUtils.getCropType;
 import gg.essential.api.commands.Command;
 import gg.essential.api.commands.DefaultHandler;
 import net.minecraft.block.Block;
@@ -16,35 +17,16 @@ public class cropNukerCommand extends Command {
     }
 
     public static Block cropType = Blocks.wheat;
+    public static int BPS = 1;
 
     @DefaultHandler
     public void handle() {
         cropNuker = !cropNuker;
 
-        cropType = getCropType();
+        cropType = getCropType.getCropType();
+        BPS = getBPS.getBPS();
 
         String str = cropNuker ? "Crop Nuker Enabled!" : "Crop Nuker Disabled!";
         SendChat.chat("§l§4[MINING IN TWO]§r " + str);
     }
-
-    private Block getCropType() {
-        int cropType = MITconfig.cropNukerType;
-        Block crop = Blocks.wheat;
-        if (cropType == 1) {
-            crop = Blocks.carrots;
-        } else if (cropType == 2) {
-            crop = Blocks.potatoes;
-        } else if (cropType == 3) {
-            crop = Blocks.nether_wart;
-        } else if (cropType == 4) {
-            crop = Blocks.pumpkin;
-        } else if (cropType == 5) {
-            crop = Blocks.melon_block;
-        } else if (cropType == 6) {
-            crop = Blocks.cocoa;
-        }
-
-        return crop;
-    }
-
 }
