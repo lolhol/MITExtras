@@ -25,25 +25,28 @@ public class coalNuker {
     private int tickCounter = 0;
     private boolean sent = false;
     private final Block[] blockType = {Blocks.coal_ore} ;
+    private BlockPos coalBlock;
 
     @SubscribeEvent
     public void onTick(TickEvent.PlayerTickEvent event) {
         if (coalNukerIsOn) {
             int range = nukerRange;
-            BlockPos coalBlock = getBlocksInRange.getBlocksMain(range, destroyedBlocks, blockType);
+
+            if (tickCounter == 0) {
+                coalBlock = getBlocksInRange.getBlocksMain(range, destroyedBlocks, blockType);
+            }
 
             if (coalBlock != null) {
-
                 if (nextTick && tickCounter >= 4) {
                     sendStop.sendStopPacket(tickPos, getBlockEnum.getEnum(tickPos));
                     nextTick = false;
                     sent = false;
                     tickCounter = 0;
                 }
-
-                if (destroyedBlocks.size() > 0) {
+                if (destroyedBlocks.size() > 10){
                     destroyedBlocks.clear();
                 }
+
 
                 if (!sent) {
                     sendStart.sendStartPacket(coalBlock, getBlockEnum.getEnum(coalBlock));
@@ -53,7 +56,7 @@ public class coalNuker {
                     tickPos = coalBlock;
 
                     sent = true;
-                    destroyedBlocks.add(coalBlock);
+                    //destroyedBlocks.add(coalBlock);
                 } else {
                     tickCounter++;
                 }

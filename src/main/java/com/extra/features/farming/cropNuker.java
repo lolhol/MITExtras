@@ -30,7 +30,7 @@ public class cropNuker {
 
             if (getBlocksInRange.getBlocksMain(range, destroyedBlocks, crop) != null) {
 
-                if (tickCount >= MITconfig.cropNukerBPS * 2) {
+                if (tickCount >= 1) {
                     BlockPos cropCords = getBlocksInRange.getBlocksMain(range, destroyedBlocks, crop);
 
                     if (destroyedBlocks.size() >= 40) {

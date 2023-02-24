@@ -4,11 +4,8 @@ import com.extra.config.MITconfig;
 import com.extra.utils.SendChat;
 import gg.essential.api.commands.Command;
 import gg.essential.api.commands.DefaultHandler;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 
 import static com.extra.MITExtras.cropNuker;
-import static com.extra.MITExtras.cropNukerType;
 
 public class cropNukerCommand extends Command {
 
